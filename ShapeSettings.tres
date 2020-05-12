@@ -6,5 +6,5 @@
 [resource]
 script = ExtResource( 1 )
 NoiseSettings = ExtResource( 2 )
-Resolution = 120
 PlanetRadius = 1.0
+Resolution = 120
