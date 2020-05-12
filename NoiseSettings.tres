@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://NoiseSettings.cs" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+BaseRoughness = 1.137
+Centre = Vector3( 0, 0, 0 )
+Roughness = 4.959
+NumLayers = 5
+Strength = 0.298
+MinValue = 0.618
+Persistence = 0.095

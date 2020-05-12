@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://ColorSettings.cs" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+PlanetColour = Color( 0.286275, 0.298039, 0.854902, 1 )

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Planet.cs" type="Script" id=1]
+[ext_resource path="res://ColorSettings.tres" type="Resource" id=2]
+[ext_resource path="res://ShapeSettings.tres" type="Resource" id=3]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.964188, -0.190548, -0.18448, 0, -0.695574, 0.718454, -0.26522, -0.692725, -0.670664, -1.54485, 4.9944, -4.74605 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( -1, -1.62921e-07, 2.82187e-07, 0, 0.866025, 0.5, -3.25841e-07, 0.5, -0.866025, 0, 2, -5 )
+
+[node name="Planet" type="Spatial" parent="."]
+script = ExtResource( 1 )
+colorSettings = ExtResource( 2 )
+shapeSettings = ExtResource( 3 )
