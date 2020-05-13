@@ -19,7 +19,8 @@ public class ShapeSettings : Resource
             {
                 if (!s.IsConnected(nameof(NoiseSettingsLayer.PropertyChanged), this, nameof(OnPropertyChanged)))
                 {
-                    s.Connect(nameof(NoiseSettingsLayer.PropertyChanged), this, nameof(OnPropertyChanged));                    
+                    s.Connect(nameof(NoiseSettingsLayer.PropertyChanged), this, nameof(OnPropertyChanged));
+                    GD.Print("Connect");
                 }
             }            
         }

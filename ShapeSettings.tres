@@ -7,6 +7,6 @@
 
 [resource]
 script = ExtResource( 1 )
-PlanetRadius = 1.0
 Resolution = 100
+PlanetRadius = 1.0
 Layers = [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ) ]

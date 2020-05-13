@@ -26,7 +26,7 @@ public class ShapeGenerator
         for (int i = 0; i < noiseFilters.Length; i++)
         {
             if (settingsLayers[i].Enabled)
-                elevation = noiseFilters[i].Evaluate(pointOnUnitSphere);
+                elevation += noiseFilters[i].Evaluate(pointOnUnitSphere);
         }
         
         return pointOnUnitSphere * Settings.PlanetRadius * (1 + elevation);
