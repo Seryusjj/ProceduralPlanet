@@ -11,6 +11,19 @@ public class NoiseSettingsLayer : Resource
 	private int numLayers = 5;
 	private float persistence = .5f;
 	private float baseRoughness = 1;
+	private bool _useFirstLayerAsMask;
+	[Export]
+	public bool UseFirstLayerAsMask
+	{
+		get { return _useFirstLayerAsMask; }
+		set
+		{
+
+			_useFirstLayerAsMask = value;
+			OnPropertyChanged();
+
+		}
+	}
 
 	bool _enabled;
 	[Export]

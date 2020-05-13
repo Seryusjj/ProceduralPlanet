@@ -14,5 +14,5 @@ transform = Transform( -1, -1.62921e-07, 2.82187e-07, 0, 0.866025, 0.5, -3.25841
 
 [node name="Planet" type="Spatial" parent="."]
 script = ExtResource( 1 )
-shapeSettings = ExtResource( 3 )
 colorSettings = ExtResource( 2 )
+shapeSettings = ExtResource( 3 )
