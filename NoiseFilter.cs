@@ -11,9 +11,9 @@ public class NoiseFilter
 
     // simplex noise implementation
     Noise noise = new Noise();
-    NoiseSettings settings;
+    NoiseSettingsLayer settings;
 
-    public NoiseFilter(NoiseSettings settings)
+    public NoiseFilter(NoiseSettingsLayer settings)
     {
         this.settings = settings;
     }

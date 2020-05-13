@@ -58,6 +58,7 @@
     <Compile Include="Noise.cs" />
     <Compile Include="NoiseFilter.cs" />
     <Compile Include="NoiseSettings.cs" />
+    <Compile Include="NoiseSettings\NoiseSettingsLayer.cs" />
     <Compile Include="Planet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShapeGenerator.cs" />

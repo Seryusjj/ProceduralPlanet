@@ -4,4 +4,4 @@
 
 [resource]
 script = ExtResource( 1 )
-PlanetColour = Color( 0.286275, 0.298039, 0.854902, 1 )
+PlanetColour = Color( 0.305882, 0.317647, 0.894118, 1 )

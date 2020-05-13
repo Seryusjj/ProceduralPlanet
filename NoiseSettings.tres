@@ -4,10 +4,10 @@
 
 [resource]
 script = ExtResource( 1 )
+Persistence = 0.095
+BaseRoughness = 1.137
 Roughness = 4.922
 Strength = 0.298
-BaseRoughness = 1.137
-MinValue = 0.618
-NumLayers = 5
-Persistence = 0.095
 Centre = Vector3( 0, 0, 0 )
+NumLayers = 5
+MinValue = 0.618
