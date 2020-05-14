@@ -4,6 +4,8 @@ using System;
 [Tool]
 public class NoiseSettingsLayer : Resource
 {
+
+	public enum FilterType { Simple, Rigid }
 	private float _strength = 1;
 	private float _roughness = 2;
 	private Vector3 _centre;
@@ -12,6 +14,29 @@ public class NoiseSettingsLayer : Resource
 	private float persistence = .5f;
 	private float baseRoughness = 1;
 	private bool _useFirstLayerAsMask;
+	private FilterType _currentFilterType;
+	private float _weightMultiplier = .8f;
+
+	[Export]
+	public float WeightMultiplier
+	{
+		get => _weightMultiplier; set
+		{
+			_weightMultiplier = value;
+			OnPropertyChanged();
+		}
+	}
+
+	[Export]
+	public FilterType CurrentFilterType
+	{
+		get => _currentFilterType;
+		set
+		{
+			_currentFilterType = value;
+			OnPropertyChanged();
+		}
+	}
 	[Export]
 	public bool UseFirstLayerAsMask
 	{
@@ -104,11 +129,8 @@ public class NoiseSettingsLayer : Resource
 		get { return _strength; }
 		set
 		{
-			if (_strength != value)
-			{
-				_strength = value;
-				OnPropertyChanged();
-			}
+			_strength = value;
+			OnPropertyChanged();
 		}
 	}
 
@@ -119,13 +141,11 @@ public class NoiseSettingsLayer : Resource
 		get { return _centre; }
 		set
 		{
-			if (_centre != value)
-			{
-				_centre = value;
-				OnPropertyChanged();
-			}
+			_centre = value;
+			OnPropertyChanged();
 		}
 	}
+
 
 
 	public void OnPropertyChanged()

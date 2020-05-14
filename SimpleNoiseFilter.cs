@@ -1,29 +1,23 @@
-﻿using Godot;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Godot;
 
-
-public class NoiseFilter
+public class SimpleNoiseFilter : INoiseFilter
 {
 
     // simplex noise implementation
     Noise noise = new Noise();
     NoiseSettingsLayer settings;
 
-    public NoiseFilter(NoiseSettingsLayer settings)
+    public SimpleNoiseFilter(NoiseSettingsLayer settings)
     {
         this.settings = settings;
     }
 
-    public float Evaluate(Vector3 point) 
+    public float Evaluate(Vector3 point)
     {
         float noiseValue = 0;
         float frequency = settings.BaseRoughness;
         float amplitude = 1;
-        for (int i = 0; i < settings.NumLayers; i++) 
+        for (int i = 0; i < settings.NumLayers; i++)
         {
             float v = noise.Evaluate(point * frequency + settings.Centre);
             noiseValue += (v + 1) * .5f * amplitude;
@@ -36,6 +30,6 @@ public class NoiseFilter
         return noiseValue * settings.Strength;
     }
 
-        
+
 }
 

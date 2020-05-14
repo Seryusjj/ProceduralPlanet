@@ -54,10 +54,14 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ColorGenerator.cs" />
     <Compile Include="ColorSettings.cs" />
+    <Compile Include="INoiseFilter.cs" />
+    <Compile Include="MinMax.cs" />
     <Compile Include="Noise.cs" />
-    <Compile Include="NoiseFilter.cs" />
-    <Compile Include="NoiseSettings.cs" />
+    <Compile Include="NoiseFilterFactory.cs" />
+    <Compile Include="RigidNoiseFilter.cs" />
+    <Compile Include="SimpleNoiseFilter.cs" />
     <Compile Include="NoiseSettings\NoiseSettingsLayer.cs" />
     <Compile Include="Planet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

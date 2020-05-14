@@ -1,12 +1,11 @@
-[gd_resource type="Resource" load_steps=5 format=2]
+[gd_resource type="Resource" load_steps=4 format=2]
 
 [ext_resource path="res://ShapeSettings.cs" type="Script" id=1]
 [ext_resource path="res://NoiseSettings/NoiseSettings2.tres" type="Resource" id=2]
 [ext_resource path="res://NoiseSettings/NoiseSettings1.tres" type="Resource" id=3]
-[ext_resource path="res://NoiseSettings/NoiseSettings3.tres" type="Resource" id=4]
 
 [resource]
 script = ExtResource( 1 )
+Layers = [ ExtResource( 3 ), ExtResource( 2 ) ]
+Resolution = 256
 PlanetRadius = 1.0
-Resolution = 100
-Layers = [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ) ]

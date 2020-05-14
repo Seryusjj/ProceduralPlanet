@@ -5,29 +5,46 @@ using System;
 public class ColorSettings : Resource
 {
 
-    private Color _planetColour;
+	private Gradient _planetColour;
 
 
-    [Export]
-    public Color PlanetColour
-    {
-        get
-        {
-            return _planetColour;
-        }
-        set
-        {
-            if (_planetColour != value)
-            {
-                _planetColour = value;
-                EmitSignal(nameof(PropertyChanged));
-            }
-        }
-    }
+	Material _planetMaterial;
+
+	ColorSettings()
+	{
+	   // _planetMaterial.VertexColorIsSrgb = true;
+	   // _planetMaterial.VertexColorUseAsAlbedo = true;
+	}
 
 
-    [Signal]
-    public delegate void PropertyChanged();
+	[Export]
+	public Gradient PlanetColour
+	{
+		get
+		{
+			return _planetColour;
+		}
+		set
+		{
+			_planetColour = value;
+			OnPropertyChanged();
+		}
+	}
+
+	[Export]
+	public Material PlanetMaterial
+	{
+		get => _planetMaterial;
+		private set => _planetMaterial = value;
+	}
+
+	private void OnPropertyChanged()
+	{
+		EmitSignal(nameof(PropertyChanged));
+	}
+
+	[Signal]
+	public delegate void PropertyChanged();
 
 
 }

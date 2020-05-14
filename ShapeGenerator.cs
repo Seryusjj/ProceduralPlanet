@@ -6,17 +6,19 @@ using System.Linq;
 public class ShapeGenerator
 {
 	public ShapeSettings Settings { get; set; }
-	public NoiseFilter[] noiseFilters;
+	public INoiseFilter[] noiseFilters;
 	public List<NoiseSettingsLayer> settingsLayers;
+	public MinMax ElevationMinMax;
 
 	public ShapeGenerator(ShapeSettings settings)
 	{
 		Settings = settings;
+		ElevationMinMax = new MinMax();
 		settingsLayers = settings.Layers.Where(x => x != null).ToList();
-		noiseFilters = new NoiseFilter[settingsLayers.Count];
+		noiseFilters = new INoiseFilter[settingsLayers.Count];
 		for (int i = 0; i < noiseFilters.Length; i++)
 		{
-			noiseFilters[i] = new NoiseFilter(settingsLayers[i]);
+			noiseFilters[i] = NoiseFilterFactory.CreateNoiseFilter(settingsLayers[i]);
 		}
 	}
 
@@ -40,8 +42,10 @@ public class ShapeGenerator
 				elevation += noiseFilters[i].Evaluate(pointOnUnitSphere) * mask;
 			}
 		}
-		
-		return pointOnUnitSphere * Settings.PlanetRadius * (1 + elevation);
+
+		elevation = Settings.PlanetRadius * (1 + elevation);
+		ElevationMinMax.AddValue(elevation);
+		return pointOnUnitSphere * elevation;
 	}
 
 }
