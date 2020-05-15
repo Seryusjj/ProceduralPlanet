@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://ColorSettings.tres" type="Resource" id=1]
+[ext_resource path="res://ShapeSettings.tres" type="Resource" id=2]
+[ext_resource path="res://Planet.cs" type="Script" id=3]
+
+[node name="Planet" type="Spatial"]
+script = ExtResource( 3 )
+colorSettings = ExtResource( 1 )
+shapeSettings = ExtResource( 2 )

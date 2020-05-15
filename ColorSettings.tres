@@ -28,7 +28,7 @@ float inverse_lerp(float start, float end, float t) {
 }
 
 void vertex() {
-	point_length = distance(VERTEX, center);	
+	point_length = distance (center, VERTEX);	
 	//point_length = length(VERTEX); //could be used as well
 }
 
