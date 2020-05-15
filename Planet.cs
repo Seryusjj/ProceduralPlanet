@@ -118,31 +118,6 @@ public class Planet : Spatial
 		}
 	}
 
-	void GenerateMeshWithSurfaceTool()
-	{
-		for (int i = 0; i < terrainFaces.Length; i++)
-		{
-			if (instances[i].Visible)
-			{
-				var terrain = terrainFaces[i];
-
-				var mat = new SpatialMaterial();
-				//mat.AlbedoColor = colorSettings.PlanetColour;
-				using (var st = new SurfaceTool())
-				{
-					st.Begin(Mesh.PrimitiveType.Triangles);
-					st.AddSmoothGroup(true);
-					st.SetMaterial(mat);
-					terrain.ConstructMesh(st);
-
-					st.GenerateNormals();
-					var mesh = st.Commit();
-					instances[i].Mesh = mesh;
-				}
-			}
-		}
-	}
-
 	void GenerateMeshWithArrayMesh()
 	{
 		for (int i = 0; i < terrainFaces.Length; i++)

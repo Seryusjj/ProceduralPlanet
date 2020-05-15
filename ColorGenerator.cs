@@ -18,7 +18,7 @@ public class ColorGenerator
 
     public void UpdateElevation(MinMax elevationMinMax, Vector3 objCenter)
     {
-        ShaderMaterial mat = Settings.PlanetMaterial as ShaderMaterial;
+        ShaderMaterial mat = Settings.PlanetMaterial;
         if (mat == null)
             throw new Exception("In color settings, the material is expected to be a ShaderMaterial");
         var minMax = new Vector2(elevationMinMax.Min, elevationMinMax.Max);

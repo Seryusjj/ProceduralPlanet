@@ -28,8 +28,6 @@ public class RigidNoiseFilter : INoiseFilter
             frequency *= settings.Roughness;
             amplitude *= settings.Persistence;
         }
-        //noise guives range [-1, 1] -> we need range [0,1]
-        // float noiseValue = (noise.Evaluate(point * settings.Roughness + settings.Centre) + 1) * 0.5f;
         noiseValue = Mathf.Max(0, noiseValue - settings.MinValue);
         return noiseValue * settings.Strength;
     }

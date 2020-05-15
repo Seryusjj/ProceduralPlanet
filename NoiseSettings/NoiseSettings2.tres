@@ -4,14 +4,14 @@
 
 [resource]
 script = ExtResource( 1 )
+MinValue = 0.0
+UseFirstLayerAsMask = true
+WeightMultiplier = 1.365
+Enabled = true
 Persistence = 0.5
+Roughness = 3.312
 BaseRoughness = 1.0
 Centre = Vector3( 0, 0, 0 )
 Strength = 0.322
 NumLayers = 5
-Roughness = 3.312
-MinValue = 0.0
-WeightMultiplier = 1.365
 CurrentFilterType = 1
-Enabled = true
-UseFirstLayerAsMask = true

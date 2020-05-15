@@ -13,13 +13,13 @@ uniform sampler2D gradient;
 varying float point_length;
 
 
-// give me a value between start and end base on t -> [0, 1]
+// generate a value between start and end based on t -> [0, 1]
 //t=0 gives me start, t=1 gives me end
 float lerp(float start, float end, float t) {
 	return start * (1.0 - t) + end * t;
 }
 
-//give me a valaue between 0 and 1 base on start and end
+//generate a valaue between 0 and 1 based on start and end
 float inverse_lerp(float start, float end, float t) {
 	if (end - start < 0.0) {
 		return start;
@@ -28,22 +28,16 @@ float inverse_lerp(float start, float end, float t) {
 }
 
 void vertex() {
-	// distance from vertex to center obj
 	point_length = distance(VERTEX, center);	
-	//point_length = length(VERTEX);
+	//point_length = length(VERTEX); //could be used as well
 }
 
 void fragment() {	
-	//x = min; y = max
-	float r = inverse_lerp(elevation.x, elevation.y, point_length);
-    //ALBEDO = vec3(r,r,r); // use red for material albedo
-
-	//float2 uv = gradient.;
-	vec4 sample = texture (gradient , vec2(r,r));
-	ALBEDO = sample.xyz; // use red for material albedo
-}
-
-"
+	//x = min; y = max values generated
+	float uv = inverse_lerp(elevation.x, elevation.y, point_length);
+	vec4 sample = texture (gradient , vec2(uv,uv));
+	ALBEDO = sample.xyz;
+}"
 
 [sub_resource type="GradientTexture" id=2]
 gradient = ExtResource( 2 )
@@ -51,11 +45,11 @@ width = 50
 
 [sub_resource type="ShaderMaterial" id=3]
 shader = SubResource( 1 )
-shader_param/elevation = Vector2( 1, 1.12599 )
+shader_param/elevation = Vector2( 1, 1.11934 )
 shader_param/center = Vector3( 0, 0, 0 )
 shader_param/gradient = SubResource( 2 )
 
 [resource]
 script = ExtResource( 1 )
-PlanetColour = ExtResource( 2 )
 PlanetMaterial = SubResource( 3 )
+PlanetColour = ExtResource( 2 )

@@ -14,42 +14,11 @@ public class TerrainFace
 
 	public TerrainFace(ShapeGenerator shapeGenerator, Vector3 upVector)
 	{
-		this.resolution = shapeGenerator.Settings.Resolution;
+		resolution = shapeGenerator.Settings.Resolution;
 		this.shapeGenerator = shapeGenerator;
 		localUp = upVector;
 		axisA = new Vector3(localUp.y, localUp.z, localUp.x);
 		axisB = axisA.Cross(localUp);
-	}
-
-
-	public void ConstructMesh(SurfaceTool st)
-	{
-		int i = 0;
-		for (int y = 0; y < resolution; ++y)
-		{
-			for (int x = 0; x < resolution; ++x)
-			{
-				Vector2 percent = new Vector2(x, y) / (resolution - 1);
-				// fit point on plane (the plane is always same size but different number of points)
-				Vector3 pointOnUnitCube = localUp + (percent.x - .5f) * 2 * axisA + (percent.y - .5f) * 2 * axisB;
-				Vector3 pointOnUnitSphere = pointOnUnitCube.Normalized();
-
-				st.AddVertex(shapeGenerator.CalculatePopintOnPlanet(pointOnUnitSphere));
-
-				// calculate the vertex that will draw the triangle, clockwise
-				if (x != resolution - 1 && y != resolution - 1)
-				{
-					st.AddIndex(i);
-					st.AddIndex(i + resolution + 1);
-					st.AddIndex(i + resolution);
-
-					st.AddIndex(i);
-					st.AddIndex(i + 1);
-					st.AddIndex(i + resolution + 1);
-				}
-				i++;
-			}
-		}
 	}
 
 	public void ConstructMesh(out Vector3[] vertices, out int[] triangles, out Vector3[] vertexNormals)

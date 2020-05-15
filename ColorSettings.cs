@@ -8,12 +8,10 @@ public class ColorSettings : Resource
 	private Gradient _planetColour;
 
 
-	Material _planetMaterial;
+	ShaderMaterial _planetMaterial;
 
 	ColorSettings()
 	{
-	   // _planetMaterial.VertexColorIsSrgb = true;
-	   // _planetMaterial.VertexColorUseAsAlbedo = true;
 	}
 
 
@@ -32,7 +30,7 @@ public class ColorSettings : Resource
 	}
 
 	[Export]
-	public Material PlanetMaterial
+	public ShaderMaterial PlanetMaterial
 	{
 		get => _planetMaterial;
 		private set => _planetMaterial = value;
